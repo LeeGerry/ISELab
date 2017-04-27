@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_margin="5dp"
         android:layout_height="wrap_content"
-        android:text="Add a new data:"
+        android:text="Add a new lift:"
         android:paddingLeft="10dp"
         android:textSize="@dimen/title_size"
         android:textStyle="bold" />
@@ -36,18 +36,18 @@
                 <TextView
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="Data_info1"
+                    android:text="Lever Arm (in.)"
                     android:textSize="@dimen/info_size"
                     android:textStyle="bold" />
 
-                <!--  Email Label -->
                 <EditText
-                    android:id="@+id/etText1"
+                    android:id="@+id/etLever"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+
                     android:hint="please input the value"
-                    android:inputType="text" />
+                    android:inputType="numberDecimal" />
             </LinearLayout>
 
             <LinearLayout
@@ -60,18 +60,17 @@
                 <TextView
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="Data_info2"
+                    android:text="Load (lbs)"
                     android:textSize="@dimen/info_size"
                     android:textStyle="bold" />
 
-                <!--  Email Label -->
                 <EditText
-                    android:id="@+id/etText2"
+                    android:id="@+id/etLoad"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="please input the value"
-                    android:inputType="text" />
+                    android:inputType="numberDecimal" />
             </LinearLayout>
 
             <LinearLayout
@@ -84,65 +83,20 @@
                 <TextView
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="Data_info3"
+                    android:text="Repetitions"
                     android:textSize="@dimen/info_size"
                     android:textStyle="bold" />
 
-                <!--  Email Label -->
                 <EditText
-                    android:id="@+id/etText3"
+                    android:id="@+id/etNumer"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="please input the value"
-                    android:inputType="text" />
+                    android:inputType="number" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal"
-                android:padding="10dp">
 
-                <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:text="Data_info4"
-                    android:textSize="@dimen/info_size"
-                    android:textStyle="bold" />
 
-                <!--  Email Label -->
-                <EditText
-                    android:id="@+id/etText4"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="please input the value"
-                    android:inputType="text" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-                <TextView
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:text="Data_info5"
-                    android:textSize="@dimen/info_size"
-                    android:textStyle="bold" />
-
-                <!--  Email Label -->
-                <EditText
-                    android:id="@+id/etText5"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="please input the value"
-                    android:inputType="text" />
-            </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
@@ -159,6 +113,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn_bg_selector"
             android:text="Save"
+            android:onClick="save"
             android:layout_gravity="center"
             android:textColor="#fff" />
 
