@@ -1,11 +1,13 @@
 package edu.auburn.iselab;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.BindView;
@@ -15,36 +17,33 @@ import edu.auburn.iselab.db.TaskDao;
 import edu.auburn.iselab.model.Task;
 import edu.auburn.iselab.utils.MultiplierUtils;
 
-public class AddActivity extends AppCompatActivity {
-    @BindView(R.id.btnSave)
-    Button btnSave;
-    @BindView(R.id.btnCancel)
-    Button btnCancel;
-    @BindView(R.id.etLever)
-    EditText etLever;
-    @BindView(R.id.etLoad)
-    EditText etLoad;
-    @BindView(R.id.etNumer)
-    EditText etNumber;
+public class AddActivity extends Activity {
+    @BindView(R.id.btnSave) Button btnSave;
+    @BindView(R.id.btnCancel) Button btnCancel;
+    @BindView(R.id.etLever) EditText etLever;
+    @BindView(R.id.etLoad) EditText etLoad;
+    @BindView(R.id.etNumer) EditText etNumber;
     private String lever, load, number;
     private Task task;
     private TaskDao dao;
+    @BindView(R.id.ibBack)
+    ImageButton ibBack;
+    @BindView(R.id.tv_title)
+    TextView tvTitle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
         ButterKnife.bind(this);
-        etLever = (EditText) findViewById(R.id.etLever);
-        etLoad = (EditText) findViewById(R.id.etLoad);
-        etNumber = (EditText) findViewById(R.id.etNumer);
+        tvTitle.setText("Add Data");
         dao = new TaskDao(this);
     }
     @OnClick(R.id.btnCancel)
-    public void cancel(View v){
+    public void cancel(){
         finish();
     }
     @OnClick(R.id.btnSave)
-    public void save(View view){
+    public void save(){
         lever = etLever.getText().toString().trim();
         load = etLoad.getText().toString().trim();
         number = etNumber.getText().toString().trim();
@@ -66,7 +65,13 @@ public class AddActivity extends AppCompatActivity {
         double d_damage = d_mul * num;
         task.setDamage(d_damage);
         task.setDate(System.currentTimeMillis());
-
         dao.addTask(task);
+        Intent intent = new Intent(this, ListActivity.class);
+        startActivity(intent);
+        finish();
+    }
+    @OnClick(R.id.ibBack)
+    public void back(){
+        this.finish();
     }
 }

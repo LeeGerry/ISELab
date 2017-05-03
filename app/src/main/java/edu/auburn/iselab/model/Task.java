@@ -1,11 +1,14 @@
 package edu.auburn.iselab.model;
 
+import java.io.Serializable;
+
 /**
  * Author: Gary
  * Time: 4/27/17
  */
 
-public class Task {
+public class Task implements Serializable{
+    private int id;
     private double lever;
     private double load;
     private double moment;
@@ -26,6 +29,14 @@ public class Task {
     }
 
     public Task() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public double getLever() {

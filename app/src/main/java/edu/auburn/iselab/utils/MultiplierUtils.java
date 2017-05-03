@@ -41,12 +41,14 @@ public class MultiplierUtils {
         }
     }
     public static Double getValueByBound(Context ctx, double moment){
+        if(moment >= 200) return .0459673d;
+        if (moment <= 0)  return .0000017d;
         List<Moment> list = initMomentList(ctx);
         for (Moment m: list){
             if (moment>=m.getLower() && moment<m.getUpper()){
                 return m.getValue();
             }
         }
-        return -1.0;
+        return -1.0d;
     }
 }

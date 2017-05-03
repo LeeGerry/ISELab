@@ -52,6 +52,7 @@ public class TaskDao {
         db.insertOrThrow(TABLE_NAME, null, contentValues);
 //        db.execSQL("INSERT INTO "+TABLE_NAME+ " (lever, load, moment, multiplier, repetitions, damage, cum, date) VALUES('ravitamada', 'datetime()'");
         db.setTransactionSuccessful();
+        db.endTransaction();
         db.close();
         Log.i("task", task.toString());
         Toast.makeText(ctx, "success"+ "\n"+task.toString(), Toast.LENGTH_SHORT).show();
@@ -64,6 +65,7 @@ public class TaskDao {
         Task t ;
         while (cursor.moveToNext()){
             t = new Task();
+            t.setId(cursor.getInt(cursor.getColumnIndex("id")));
             t.setLever(cursor.getDouble(cursor.getColumnIndex("lever")));
             t.setLoad(cursor.getDouble(cursor.getColumnIndex("load")));
             t.setMoment(cursor.getDouble(cursor.getColumnIndex("moment")));
@@ -77,4 +79,26 @@ public class TaskDao {
         db.close();
         return list;
     }
+
+    public void delete(int tid) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String sql = "delete from "+TABLE_NAME+ " where id = ?";
+        Object[] objs = new Object[] { tid };
+        db.execSQL(sql, objs);
+        db.close();
+    }
+
+    public double calculateTotalTrauma(){
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String sql = "select damage from "+TABLE_NAME;
+        Cursor cursor = db.rawQuery(sql, null);
+        double total = 0;
+        while (cursor.moveToNext()){
+            total += cursor.getDouble(cursor.getColumnIndex("damage"));
+        }
+        db.close();
+        return total;
+    }
 }
+
+
