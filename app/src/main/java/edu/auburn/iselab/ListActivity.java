@@ -47,6 +47,8 @@ public class ListActivity extends Activity {
                 Intent intent = new Intent(ListActivity.this, ItemActivity.class);
                 Task item = adapter.getItem(position);
                 intent.putExtra("task", item);
+                intent.putExtra("position",position);
+
                 startActivity(intent);
             }
         });

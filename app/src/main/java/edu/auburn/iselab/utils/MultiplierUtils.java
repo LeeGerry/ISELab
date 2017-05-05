@@ -51,4 +51,18 @@ public class MultiplierUtils {
         }
         return -1.0d;
     }
+
+    public static double inchToCm(double inch){
+        return Arith.round(Arith.mul(inch, 2.54d), 5);
+    }
+    public static double lbToKg(double lb){
+        return Arith.round(Arith.mul(lb, 0.4536d), 5);
+    }
+
+    public static double cmToInch(double cm){
+        return Arith.div(cm, 2.54d, 5);
+    }
+    public static double kgToLb(double kg){
+        return Arith.div(kg, 0.4536d, 5);
+    }
 }

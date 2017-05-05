@@ -22,13 +22,15 @@ public class MainActivity extends Activity {
     TextView tvTitle;
     @BindView(R.id.tvTotal)
     TextView tvTotal;
+    @BindView(R.id.btnSetting)
+    Button btnSetting;
     private TaskDao dao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        tvTitle.setText("ISELab Tools");
+        tvTitle.setText(getString(R.string.app_name));
         ibBack.setVisibility(View.GONE);
         dao = new TaskDao(this);
     }
@@ -42,10 +44,16 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this, ListActivity.class);
         startActivity(intent);
     }
-
+    @OnClick(R.id.btnSetting)
+    public void setting(){
+        Intent intent = new Intent(this, SettingActivity.class);
+        startActivity(intent);
+    }
     @Override
     protected void onResume() {
         super.onResume();
-        tvTotal.setText(dao.calculateTotalTrauma()+"");
+        double total = dao.calculateTotalTrauma();
+
+        tvTotal.setText(String.format("%.5f", total));
     }
 }

@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">ISELab</string>
+    <string name="app_name">LiFFT App</string>
+    <string name="metric">Metric</string>
+    <string name="English">Imperial</string>
+    <string name="i_lever">Lever Arm (in.)</string>
+    <string name="m_lever">Lever Arm (cm)</string>
+    <string name="i_load">Load (lbs.)</string>
+    <string name="m_load">Load (kg)</string>
 </resources>

@@ -53,7 +53,7 @@ public class DataListAdapter extends BaseAdapter {
             view.setTag(holder);
         }
         Task t = getItem(position);
-        holder.tvName.setText("task"+t.getId());
+        holder.tvName.setText("task"+(position+1));
         long date = t.getDate();
         SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
         String d = format.format(date);

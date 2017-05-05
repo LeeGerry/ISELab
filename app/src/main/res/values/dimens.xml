@@ -11,7 +11,7 @@
     <dimen name="topView">20dp</dimen>
     <dimen name="info_size">22dp</dimen>
     <dimen name="title_size">24dp</dimen>
-    <dimen name="item_title_width">150dp</dimen>
+    <dimen name="item_title_width">170dp</dimen>
     <dimen name="item_context_margin_left">20dp</dimen>
 
 </resources>
