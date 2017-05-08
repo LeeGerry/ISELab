@@ -25,5 +25,15 @@
         android:text="title"
         android:textColor="#fff"
         android:textSize="26sp" />
-
+    <TextView
+        android:visibility="gone"
+        android:layout_alignParentRight="true"
+        android:id="@+id/tvEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_centerVertical="true"
+        android:text="Edit"
+        android:textColor="#fff"
+        android:textSize="26sp" />
 </RelativeLayout>

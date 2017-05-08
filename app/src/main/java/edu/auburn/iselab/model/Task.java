@@ -17,6 +17,16 @@ public class Task implements Serializable{
     private double damage;
     private double cumLoad;
     private long date;
+    private boolean checked;
+
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
+    }
+
     public Task(long date, double lever, double load, double moment, double multiplier, int repetitions, double damage, double cumLoad) {
         this.lever = lever;
         this.load = load;

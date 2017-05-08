@@ -20,10 +20,10 @@ import edu.auburn.iselab.model.Task;
  * Time: 4/28/17
  */
 
-public class DataListAdapter extends BaseAdapter {
+public class DataListEditAdapter extends BaseAdapter {
     private Context ctx;
     private List<Task> tasks;
-    public DataListAdapter(Context ctx, List<Task> tasks) {
+    public DataListEditAdapter(Context ctx, List<Task> tasks) {
         this.ctx = ctx;
         this.tasks = tasks;
     }
@@ -54,8 +54,9 @@ public class DataListAdapter extends BaseAdapter {
             view.setTag(holder);
         }
         Task t = getItem(position);
-        holder.cbStatus.setVisibility(View.INVISIBLE);
         holder.tvName.setText("task"+(position+1));
+        holder.cbStatus.setVisibility(View.VISIBLE);
+        holder.cbStatus.setChecked(t.isChecked());
         long date = t.getDate();
         SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
         String d = format.format(date);
@@ -65,10 +66,10 @@ public class DataListAdapter extends BaseAdapter {
     static class ViewHold{
         @BindView(R.id.tvName) TextView tvName;
         @BindView(R.id.tvTime) TextView tvTime;
-        @BindView(R.id.cbStatus)
-        CheckBox cbStatus;
+        @BindView(R.id.cbStatus)CheckBox cbStatus;
         public ViewHold(View view) {
             ButterKnife.bind(this, view);
         }
     }
+
 }
